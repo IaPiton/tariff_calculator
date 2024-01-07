@@ -22,7 +22,7 @@ class PricesRublesPropertiesTest {
     PricesRublesProperties properties;
 
     @BeforeEach
-    void init(){
+    void init() {
         properties = new PricesRublesProperties();
         properties.setCurrencyFactory(currencyFactory);
 
@@ -38,7 +38,6 @@ class PricesRublesPropertiesTest {
     @Test
     void whenCallPricePerKg_thenRequestFromConfig() {
         var actual = properties.costPerKg();
-
         verify(currencyFactory).create("RUB");
         assertThat(actual.amount()).isEqualByComparingTo(PER_KG);
         assertThat(actual.currency().getCode()).isEqualTo("RUB");
@@ -47,7 +46,6 @@ class PricesRublesPropertiesTest {
     @Test
     void whenCallMinimalPrice_thenRequestFromConfig() {
         var actual = properties.minimalPrice();
-
         verify(currencyFactory).create("RUB");
         assertThat(actual.amount()).isEqualByComparingTo(MINIMAL);
         assertThat(actual.currency().getCode()).isEqualTo("RUB");

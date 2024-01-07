@@ -18,16 +18,18 @@ public record Weight(BigInteger weightGrams) implements Comparable<Weight> {
     }
 
     private static boolean isLessThanZero(BigInteger price) {
+
         return BigInteger.ZERO.compareTo(price) > 0;
     }
 
     public static Weight zero() {
+
         return new Weight(BigInteger.ZERO);
     }
 
     public BigDecimal kilograms() {
         return new BigDecimal(weightGrams)
-                .divide(BigDecimal.valueOf(1000), 100, RoundingMode.HALF_UP).setScale(3);
+                .divide(BigDecimal.valueOf(1000), 3, RoundingMode.HALF_UP);
     }
 
     public Weight add(Weight additionalWeight) {

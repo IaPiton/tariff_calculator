@@ -16,7 +16,6 @@ class CurrencyPropertiesTest {
     void whenCodeInList_thanIsAvailableCurrencyCodeReturnTrue() {
         CurrencyProperties properties = new CurrencyProperties();
         properties.setAvailable(List.of("USD", "EUR"));
-
         assertTrue(properties.isAvailable("USD"));
         assertTrue(properties.isAvailable("EUR"));
         assertFalse(properties.isAvailable("RUB"));

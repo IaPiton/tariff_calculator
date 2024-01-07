@@ -2,8 +2,10 @@ package ru.fastdelivery.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.fastdelivery.domain.common.Distance.DistanceFactory;
 import ru.fastdelivery.domain.common.currency.CurrencyFactory;
 import ru.fastdelivery.domain.common.currency.CurrencyPropertiesProvider;
+import ru.fastdelivery.domain.common.Distance.CheckingCoordinates;
 import ru.fastdelivery.usecase.TariffCalculateUseCase;
 import ru.fastdelivery.usecase.WeightPriceProvider;
 
@@ -12,6 +14,10 @@ import ru.fastdelivery.usecase.WeightPriceProvider;
  */
 @Configuration
 public class Beans {
+    @Bean
+    public DistanceFactory distanceFactory(CheckingCoordinates checkingCoordinates) {
+        return new DistanceFactory(checkingCoordinates);
+    }
 
     @Bean
     public CurrencyFactory currencyFactory(CurrencyPropertiesProvider currencyProperties) {

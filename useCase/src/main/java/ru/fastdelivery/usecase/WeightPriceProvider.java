@@ -6,4 +6,6 @@ public interface WeightPriceProvider {
     Price costPerKg();
 
     Price minimalPrice();
+
+    Price outerDimensionPrice();
 }
