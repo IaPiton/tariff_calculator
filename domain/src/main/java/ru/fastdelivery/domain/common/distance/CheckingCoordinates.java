@@ -1,6 +1,4 @@
-package ru.fastdelivery.domain.common.Distance;
-
-import ru.fastdelivery.domain.common.Distance.DistanceFactory;
+package ru.fastdelivery.domain.common.distance;
 
 public interface CheckingCoordinates {
     boolean isLatitude(double latitude);

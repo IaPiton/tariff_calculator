@@ -1,4 +1,4 @@
-package ru.fastdelivery.domain.common.Distance;
+package ru.fastdelivery.domain.common.distance;
 
 
 public record Destination (double latitude,

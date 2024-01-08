@@ -1,4 +1,4 @@
-package ru.fastdelivery.domain.common.Volume;
+package ru.fastdelivery.domain.common.outerDimension;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -14,16 +14,16 @@ public record OuterDimension(BigDecimal OuterDimension) {
         this.OuterDimension = OuterDimension;
     }
 
-    private static boolean isLessThanZero(BigInteger parameter) {
-        return BigInteger.ZERO.compareTo(parameter) >= 0;
+    public static boolean isLessThanZero(BigInteger parameter) {
+        return BigInteger.ZERO.compareTo(parameter) > 0;
     }
 
-    private static boolean isLargeSize(BigInteger parameter) {
+    public static boolean isLargeSize(BigInteger parameter) {
         return parameter.compareTo(LARGE_SIZE) > 0;
     }
 
-    private static BigInteger rounding(BigInteger parameter) {
-        parameter = (parameter.remainder(ROUNDING).compareTo(ROUNDING.divide(HALF))) == 1
+    public static BigInteger rounding(BigInteger parameter) {
+        parameter = (parameter.remainder(ROUNDING).compareTo(ROUNDING.divide(HALF))) > 0
                 ? (((parameter.divide(ROUNDING)).multiply(ROUNDING)).add(ROUNDING))
                 : (parameter.divide(ROUNDING)).multiply(ROUNDING);
         return parameter;
@@ -44,7 +44,7 @@ public record OuterDimension(BigDecimal OuterDimension) {
         return new OuterDimension(OuterDimension);
     }
 
-    private static BigDecimal cubicMeters(BigInteger length, BigInteger width, BigInteger height) {
+    public static BigDecimal cubicMeters(BigInteger length, BigInteger width, BigInteger height) {
         BigDecimal cubicMeters = new BigDecimal(length.multiply(width)
                 .multiply(height));
         return cubicMeters.divide(BigDecimal.valueOf(1000000000), 4, RoundingMode.HALF_UP);

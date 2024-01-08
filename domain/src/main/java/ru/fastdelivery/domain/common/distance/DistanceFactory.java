@@ -1,8 +1,7 @@
-package ru.fastdelivery.domain.common.Distance;
+package ru.fastdelivery.domain.common.distance;
 
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 
 @AllArgsConstructor

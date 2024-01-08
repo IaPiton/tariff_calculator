@@ -1,6 +1,6 @@
 package ru.fastdelivery.domain.delivery.shipment;
 
-import ru.fastdelivery.domain.common.Volume.OuterDimension;
+import ru.fastdelivery.domain.common.outerDimension.OuterDimension;
 import ru.fastdelivery.domain.common.currency.Currency;
 import ru.fastdelivery.domain.common.weight.Weight;
 import ru.fastdelivery.domain.delivery.pack.OuterDimensionPack;
@@ -25,7 +25,7 @@ public record Shipment(
                 .map(Pack::weight)
                 .reduce(Weight.zero(), Weight::add);
     }
-    public OuterDimension weightAllVolumePacks() {
+    public OuterDimension allOuterDimensionPacks() {
         return outerDimensionPack.stream()
                 .map(OuterDimensionPack::OuterDimension)
                 .reduce(OuterDimension.zero(), OuterDimension::addOuterDimension);

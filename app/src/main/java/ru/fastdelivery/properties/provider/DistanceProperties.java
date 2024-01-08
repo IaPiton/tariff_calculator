@@ -2,11 +2,8 @@ package ru.fastdelivery.properties.provider;
 
 import lombok.Setter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import ru.fastdelivery.domain.common.Distance.CheckingCoordinates;
-import ru.fastdelivery.domain.common.Distance.DistanceFactory;
-import ru.fastdelivery.domain.common.currency.CurrencyFactory;
+import ru.fastdelivery.domain.common.distance.CheckingCoordinates;
 
 /**
  * Проверка координат по ограничениям

@@ -1,5 +1,6 @@
 package ru.fastdelivery.domain.common.price;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.fastdelivery.domain.common.currency.Currency;
 import ru.fastdelivery.domain.common.currency.CurrencyFactory;
@@ -15,6 +16,7 @@ class PriceTest {
 
 
     @Test
+    @DisplayName("Если значение больше ")
     void whenAmountBelowZero_thenException() {
         var amount = BigDecimal.valueOf(-1);
         assertThatThrownBy(() -> new Price(amount, currency))
