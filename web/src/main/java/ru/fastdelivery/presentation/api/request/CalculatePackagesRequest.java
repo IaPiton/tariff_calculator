@@ -7,7 +7,7 @@ import ru.fastdelivery.domain.common.distance.Departure;
 import ru.fastdelivery.domain.common.distance.Destination;
 
 
-import java.math.BigInteger;
+
 import java.util.List;
 
 @Schema(description = "Данные для расчета стоимости доставки")
