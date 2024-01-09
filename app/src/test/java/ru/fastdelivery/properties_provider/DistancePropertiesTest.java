@@ -7,7 +7,6 @@ import ru.fastdelivery.properties.provider.DistanceProperties;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
 
 public class DistancePropertiesTest {
     public static final double LATITUDE_MIN = 20;
@@ -48,6 +47,6 @@ public class DistancePropertiesTest {
     void isLongitudeExceptionTest() {
         properties = new DistanceProperties(LATITUDE_MIN, LATITUDE_MAX, LONGITUDE_MIN, LONGITUDE_MAX);
         assertThrows(IllegalArgumentException.class,
-                () -> properties.isLongtitude(DEPARTURE_LONGITUDE));
+                () -> properties.isLongitude(DEPARTURE_LONGITUDE));
     }
 }

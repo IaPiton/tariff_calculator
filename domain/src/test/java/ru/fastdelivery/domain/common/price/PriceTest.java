@@ -28,9 +28,7 @@ class PriceTest {
         var price = new Price(BigDecimal.valueOf(10), currency);
         var pieces = new BigDecimal("2.54");
         var expected = new Price(BigDecimal.valueOf(25.4), currency);
-
         var actualPrice = price.multiply(pieces);
-
         assertThat(actualPrice.amount()).isEqualByComparingTo(expected.amount());
         assertThat(actualPrice.currency()).isEqualTo(expected.currency());
     }
@@ -38,10 +36,8 @@ class PriceTest {
     @Test
     void max() {
         var price = new Price(BigDecimal.valueOf(10), currency);
-        var moreThanPrice = new Price(BigDecimal.valueOf(100), currency);
-
+        var moreThanPrice = new Price(BigDecimal.valueOf(100).setScale(2), currency);
         var actualMax = price.max(moreThanPrice);
-
         assertThat(actualMax).isEqualTo(moreThanPrice);
     }
 
@@ -50,7 +46,6 @@ class PriceTest {
         var price = new Price(BigDecimal.valueOf(10), currency);
         var moreThanPrice = new Price(BigDecimal.valueOf(100),
                 new CurrencyFactory(code -> true).create("USD"));
-
         assertThatThrownBy(() -> price.max(moreThanPrice))
                 .isInstanceOf(IllegalArgumentException.class);
     }

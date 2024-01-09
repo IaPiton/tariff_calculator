@@ -33,7 +33,7 @@ public class DistanceProperties implements CheckingCoordinates {
     }
 
     @Override
-    public boolean isLongtitude(double longitude) {
+    public boolean isLongitude(double longitude) {
         if (longitude < longitudeMin || longitude > longitudeMax) {
             throw new IllegalArgumentException("Longitude cannot be greater " + longitudeMax + " and less " + longitudeMin + "!");
         }

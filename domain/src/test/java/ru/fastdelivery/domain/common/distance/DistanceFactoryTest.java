@@ -17,7 +17,7 @@ public class DistanceFactoryTest {
     @DisplayName("Если значение долготы и широты в разрешенном диапазонето объект создается")
     void whenTheCoordinatesAreInTheRange_ThatDepartureIsCreated() {
         when(checkingCoordinates.isLatitude(latitude)).thenReturn(true);
-        when(checkingCoordinates.isLongtitude(longitude)).thenReturn(true);
+        when(checkingCoordinates.isLongitude(longitude)).thenReturn(true);
         assertThat(factory.createDeparture(latitude, longitude)).isNotNull();
     }
 
@@ -25,9 +25,8 @@ public class DistanceFactoryTest {
     @DisplayName("Если значение долготы и широты в разрешенном диапазонето объект создается")
     void whenTheCoordinatesAreInTheRange_ThatDestinationIsCreated() {
         when(checkingCoordinates.isLatitude(latitude)).thenReturn(true);
-        when(checkingCoordinates.isLongtitude(longitude)).thenReturn(true);
+        when(checkingCoordinates.isLongitude(longitude)).thenReturn(true);
         assertThat(factory.createDeparture(latitude, longitude)).isNotNull();
     }
-
 
 }

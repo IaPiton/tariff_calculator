@@ -6,13 +6,9 @@ import java.math.RoundingMode;
 
 public record OuterDimension(BigDecimal OuterDimension) {
 
-    private static BigInteger ROUNDING = new BigInteger("50");
-    private static BigInteger HALF = new BigInteger("2");
-    private static BigInteger LARGE_SIZE = new BigInteger("1500");
-
-    public OuterDimension(BigDecimal OuterDimension) {
-        this.OuterDimension = OuterDimension;
-    }
+    private static final BigInteger ROUNDING = new BigInteger("50");
+    private static final BigInteger HALF = new BigInteger("2");
+    private static final BigInteger LARGE_SIZE = new BigInteger("1500");
 
     public static boolean isLessThanZero(BigInteger parameter) {
         return BigInteger.ZERO.compareTo(parameter) > 0;

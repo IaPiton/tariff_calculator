@@ -7,7 +7,6 @@ import ru.fastdelivery.domain.delivery.pack.OuterDimensionPack;
 import ru.fastdelivery.domain.delivery.pack.Pack;
 
 
-
 import java.util.List;
 
 /**
@@ -25,6 +24,7 @@ public record Shipment(
                 .map(Pack::weight)
                 .reduce(Weight.zero(), Weight::add);
     }
+
     public OuterDimension allOuterDimensionPacks() {
         return outerDimensionPack.stream()
                 .map(OuterDimensionPack::OuterDimension)

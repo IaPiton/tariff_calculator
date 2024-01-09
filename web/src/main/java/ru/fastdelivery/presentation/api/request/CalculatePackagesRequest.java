@@ -7,12 +7,14 @@ import ru.fastdelivery.domain.common.distance.Departure;
 import ru.fastdelivery.domain.common.distance.Destination;
 
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Schema(description = "Данные для расчета стоимости доставки")
 public record CalculatePackagesRequest(
+
         @Schema(description = "Список упаковок отправления",
-                example = "[{\"weight\": 4056.45}]")
+                example = "[{\"weight\", \"length\", \"width\", \"height\": 4056.45, 100, 200, 300, 400}]")
         @NotNull
         @NotEmpty
         List<CargoPackage> packages,
@@ -20,12 +22,11 @@ public record CalculatePackagesRequest(
         @Schema(description = "Трехбуквенный код валюты", example = "RUB")
         @NotNull
         String currencyCode,
-
+        @Schema(description = "Координаты места назначения", example = "60.398660, 55.027532")
         @NotNull
         Destination destination,
-
+        @Schema(description = "Координаты места отправления", example = "60.398660, 55.027532")
         @NotNull
         Departure departure
-
 ) {
 }
